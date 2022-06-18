@@ -1,0 +1,58 @@
+server:
+  port: 8999
+
+#eureka:
+#  instance:
+#    hostname: localhost
+
+
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      routes:
+      
+      #Net-Worth Services     
+        - id: networth-service
+          uri: lb://networth-service
+          predicates:
+            - Path=/networth/**
+            
+      #Daily-Mutual Services
+        - id: dailymutual-service
+          uri: lb://dailymutual-service
+          predicates:
+            - Path=/dailymutual/**
+            
+      #Daily-Share Services
+        - id: dailyshare-service
+          uri: lb://dailyshare-service
+          predicates:
+            - Path=/dailyshare/**
+          
+      
+      
+      
+      
+      
+      #Eureka-Server  
+        - id: eureka-server
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/web
+          filters:
+            - SetPath=/
+     
+     #Eureka-Server static resource Rotue
+        - id: eureka-server-static
+          uri: http://localhost:8761
+          predicates:
+            - Path=/eureka/**
+  
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+          
+            

@@ -1,0 +1,25 @@
+h3.h {
+    border: 2px solid blueviolet;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+thead,
+tbody {
+    text-align: center;
+}
+
+.accent {
+    transition-duration: 0.4s;
+    border: none;
+    padding: 10px 22px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    float: auto;
+}
+
+.accent:hover {
+    background-color: #0c12c3;
+    color: white;
+}

@@ -1,0 +1,14 @@
+* {
+    background-color: #000000;
+    height: 12%;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+p {
+    text-align: center;
+
+}
