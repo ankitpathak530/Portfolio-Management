@@ -28,7 +28,8 @@ import { MatTableModule } from '@angular/material/table';
 import { VieweachstockComponent } from './components/vieweachstock/vieweachstock.component';
 import { VieweachmutualComponent } from './components/vieweachmutual/vieweachmutual.component';
 import { AllassetpriceComponent } from './components/allassetprice/allassetprice.component';
-
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ViewMenuAssetsComponent } from './components/view-menu-assets/view-menu-assets.component';
 
 
 @NgModule({
@@ -46,6 +47,7 @@ import { AllassetpriceComponent } from './components/allassetprice/allassetprice
     VieweachstockComponent,
     VieweachmutualComponent,
     AllassetpriceComponent,
+    ViewMenuAssetsComponent,
 
   ],
   imports: [
@@ -61,7 +63,8 @@ import { AllassetpriceComponent } from './components/allassetprice/allassetprice
     MatCardModule,
     MatExpansionModule,
     MatIconModule,
-    MatTableModule
+    MatTableModule,
+    MatSnackBarModule
   ],
   providers: [AuthGuard, LoginService],
   bootstrap: [AppComponent]

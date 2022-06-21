@@ -5,7 +5,14 @@
         <td>{{mutual.mutualFundUnits}}</td>
         <td>{{mutual.currentPrice}}</td>
 
-        <td><input type="number" min="1" max="{{mutual.mutualFundUnits}}" [(ngModel)]="sales.soldUnits"
-                style="width: 100%"></td>
+
+
+
+        <td>
+            <mat-form-field class="example-full-width" style="height: 48px;" appearance="fill">
+                <input matInput placeholder="Ex. California" min="1" max="{{mutual.mutualFundUnits}}"
+                    [(ngModel)]="sales.soldUnits">
+            </mat-form-field>
+        </td>
     </tr>
 </table>

@@ -1,55 +1,89 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 py-5">
-            <h3 class="text-center">Your Available Stock</h3>
-            <div class="part1">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr class="table-info">
-                            <th scope="col">Name</th>
-                            <th scope="col">Counts</th>
-                            <th scope="col">Current Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let stock of stockDetailList1">
-                            <td>{{stock.stockName}}</td>
-                            <td>{{stock.stockCount}}</td>
-                            <td>{{stock.currentPrice}}</td>
-                        </tr>
-                    </tbody>
-                </table>
+    <div class="row mt-5">
+        <div class="row mt-5">
+            <div class="row mt-5">
+
+                <div class="col">
+                    <div class="mb-3 px-3">
+                        <mat-card-content class="text-center">
+
+                            <p><button mat-raised-button color="primary" (click)="setFlagZero()" class="accent">Get Your
+                                    Share
+                                </button></p>
+                        </mat-card-content>
+                    </div>
+                </div>
+                <p></p>
+
+
+
+                <div class="col">
+                    <div class="mb-3 px-3">
+                        <mat-card-content class="text-center">
+
+                            <p><button mat-raised-button color="primary" (click)="setFlagOne()" class="accent">Get Your
+                                    Mutual
+                                    Fund</button></p>
+                        </mat-card-content>
+                    </div>
+                </div>
+
+                <p></p>
+
+
+                <div class="col py-5" *ngIf="flag == 0">
+                    <h3 class="text-center">Your Available Stock</h3>
+                    <div class="part1">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Counts</th>
+                                    <th scope="col">Current Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let stock of stockDetailList1">
+                                    <td>{{stock.stockName}}</td>
+                                    <td>{{stock.stockCount}}</td>
+                                    <td>{{stock.currentPrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr class="pb-2">
+                </div>
+                <div class="col py-5" *ngIf="flag == 1">
+                    <h3 class="text-center">Your Available MutualFund</h3>
+                    <div class="part2">
+                        <table class="table">
+                            <thead class="thead-dark">
+                                <tr>
+                                    <th scope="col">Name</th>
+                                    <th scope="col">Counts</th>
+                                    <th scope="col">Current Price</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let mf of mutualFundl">
+                                    <td>{{mf.mutualFundName}}</td>
+                                    <td>{{mf.mutualFundUnits}}</td>
+                                    <td>{{mf.currentPrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <hr class="pb-2">
+
+                </div>
+
+                <div class="text-center">
+                    <h1>Your Total Networth : {{balance | currency:'INR':true}}</h1>
+                    <!-- <p><button routerLink="/sellasset" class="accent">Sell Assets</button></p> -->
+
+                </div>
+
             </div>
-            <hr class="pb-2">
-        </div>
-        <div class="col-md-6 py-5">
-            <h3 class="text-center">Your Available MutualFund</h3>
-            <div class="part2">
-                <table class="table table-hover table-bordered">
-                    <thead>
-                        <tr class="table-info">
-                            <th scope="col">Name</th>
-                            <th scope="col">Counts</th>
-                            <th scope="col">Current Price</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor="let mf of mutualFundl">
-                            <td>{{mf.mutualFundName}}</td>
-                            <td>{{mf.mutualFundUnits}}</td>
-                            <td>{{mf.currentPrice}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-            <hr class="pb-2">
-
-        </div>
-
-        <div class="text-center">
-            <h1>Your Total Networth : {{balance | currency:'INR':true}}</h1>
-            <p><button routerLink="/sellasset" class="accent">Sell Assets</button></p>
-
         </div>
     </div>
 </div>

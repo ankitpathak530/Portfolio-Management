@@ -1,11 +1,36 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-6">
+    <div class="row mt-5">
+        <div class="col">
+            <div class="mb-3 px-3">
+                <mat-card-content class="text-center">
+
+                    <p><button mat-raised-button color="primary" (click)="setFlagZero()" class="accent">View
+                            All Daily Share Price</button></p>
+                </mat-card-content>
+            </div>
+        </div>
+        <p></p>
+
+
+
+        <div class="col">
+            <div class="mb-3 px-3">
+                <mat-card-content class="text-center">
+
+                    <p><button mat-raised-button color="primary" (click)="setFlagOne()" class="accent">View
+                            All Mutual Fund Price</button></p>
+                </mat-card-content>
+            </div>
+        </div>
+
+        <p></p>
+
+        <div class="col" *ngIf="flag == 0">
             <div class="py-4">
                 <h3 class="text-center">Daily Stock Price</h3>
                 <table class="table table-hover table-bordered">
-                    <thead class="text-center">
-                        <tr class="table-info">
+                    <thead class="thead-dark text-center">
+                        <tr>
                             <th scope="col">S.N.</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
@@ -21,12 +46,12 @@
                 </table>
             </div>
         </div>
-        <div class="col-md-6">
+        <div class="col" *ngIf="flag == 1">
             <div class="py-4">
                 <h3 class="text-center">Daily Mutual Price</h3>
                 <table class="table table-hover table-bordered">
                     <thead class="thead-dark text-center">
-                        <tr class="table-info">
+                        <tr>
                             <th scope="col">S.N.</th>
                             <th scope="col">Name</th>
                             <th scope="col">Price</th>
@@ -41,9 +66,11 @@
                     </tbody>
                 </table>
             </div>
-            <!-- <div class="text-center">
-                <p><button routerLink="/dashboard" class="accent">back</button></p>
-            </div> -->
+
         </div>
+
+
+
+
     </div>
 </div>

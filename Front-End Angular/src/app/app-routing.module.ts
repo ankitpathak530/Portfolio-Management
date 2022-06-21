@@ -9,54 +9,60 @@ import { SellassetComponent } from './components/sellasset/sellasset.component';
 import { AuthGuard } from './services/auth.guard';
 import { ViewassetComponent } from './components/viewasset/viewasset.component';
 import { AllassetpriceComponent } from './components/allassetprice/allassetprice.component';
+import { ViewMenuAssetsComponent } from './components/view-menu-assets/view-menu-assets.component';
 
 const routes: Routes = [
   {
-    path:'',
-    component:HomeComponent,
-    pathMatch:'full'
+    path: '',
+    component: HomeComponent,
+    pathMatch: 'full'
   },
   {
-    path:"login",
-    component:LoginComponent,
-    pathMatch:"full"
+    path: "login",
+    component: LoginComponent,
+    pathMatch: "full"
   },
   {
-    path:"dashboard",
-    component:DashboardComponent,
-    pathMatch:"full",
-    canActivate:[AuthGuard]
+    path: "dashboard",
+    component: DashboardComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard]
   },
   {
-    path:"contact",
-    component:ContactUsComponent,
-    pathMatch:"full",
-  
+    path: "contact",
+    component: ContactUsComponent,
+    pathMatch: "full",
+
   },
   {
-    path:"viewasset",
-    component:ViewassetComponent,
-    pathMatch:"full",
-    canActivate:[AuthGuard]
-  
+    path: "view-menu-asset",
+    component: ViewMenuAssetsComponent,
+    pathMatch: "full"
   },
   {
-    path:"sellasset",
-    component:SellassetComponent,
-    pathMatch:"full",
-    canActivate:[AuthGuard]
-  
+    path: "viewasset",
+    component: ViewassetComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard]
+
   },
   {
-    path:"currentprice",
-    component:AllassetpriceComponent,
-    pathMatch:"full",
-    canActivate:[AuthGuard]
-  
+    path: "sellasset",
+    component: SellassetComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard]
+
   },
-  { 
-    path: '**', 
-    component: ErrorComponent 
+  {
+    path: "currentprice",
+    component: AllassetpriceComponent,
+    pathMatch: "full",
+    canActivate: [AuthGuard]
+
+  },
+  {
+    path: '**',
+    component: ErrorComponent
   }
 ];
 

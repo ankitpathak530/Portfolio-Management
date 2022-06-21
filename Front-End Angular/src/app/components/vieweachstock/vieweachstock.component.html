@@ -1,12 +1,19 @@
-<table table-bordered>
+<table table-bordered class="example-full-width" cellspacing="0">
     <tbody>
         <tr class="p-2">
             <td><input type="checkbox" (click)="doOperation()" style="width:10px;"></td>
             <td>{{stock.stockName}}</td>
             <td>{{stock.stockCount}}</td>
             <td>{{stock.currentPrice}}</td>
-            <td><input type="number" style="width:100%;" min="1" max="{{stock.stockCount}}"
-                    [(ngModel)]="sales.soldUnits"></td>
+
+
+            <td>
+                <mat-form-field class="example-full-width" style="height: 48px;" appearance="fill">
+                    <input matInput placeholder="Ex. California" min="1" max="{{stock.stockCount}}"
+                        [(ngModel)]="sales.soldUnits">
+                </mat-form-field>
+            </td>
+
         </tr>
     </tbody>
 

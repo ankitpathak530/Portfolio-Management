@@ -19,7 +19,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 @SpringBootApplication
 @EnableFeignClients
 @EnableSwagger2
-//@EnableEurekaClient
+@EnableEurekaClient
 public class DailySharePriceApplication {
 
 	public static void main(String[] args) {

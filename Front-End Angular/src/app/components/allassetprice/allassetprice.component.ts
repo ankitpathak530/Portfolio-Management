@@ -12,49 +12,56 @@ import { StockserviceService } from 'src/app/services/stockservice.service';
 })
 export class AllassetpriceComponent implements OnInit {
   token: string | null = ""
-  allMutualFund:AllMutualFund[]=[]
-  allStock:AllStock[]=[]
-  constructor(private loginService:LoginService,private mfservice:MutualfundserviceService,private sdService:StockserviceService) { }
+  allMutualFund: AllMutualFund[] = []
+  allStock: AllStock[] = []
+  constructor(private loginService: LoginService, private mfservice: MutualfundserviceService, private sdService: StockserviceService) { }
 
   ngOnInit(): void {
     this.getAllMutualFundDetails();
     this.getAllStockDetail();
   }
 
-  getAllMutualFundDetails()
-  {
-    this.token=  this.loginService.getToken();
-    if(this.token!=null)
-    {
-      this.mfservice.getAllMutualFund().subscribe((data:AllMutualFund[])=>
-      {
-        console.log(data);
-       this.allMutualFund=data
-      },
-      (error:any)=>
-      {
-        console.log(error);
 
-      });
+  flag = -1;
+
+
+  setFlagZero() {
+    if (this.flag != 0) {
+      this.flag = 0;
+    }
+  }
+  setFlagOne() {
+    if (this.flag != 1) {
+      this.flag = 1;
+    }
+  }
+
+  getAllMutualFundDetails() {
+    this.token = this.loginService.getToken();
+    if (this.token != null) {
+      this.mfservice.getAllMutualFund().subscribe((data: AllMutualFund[]) => {
+        console.log("Mutual Fund-Details:", data);
+        this.allMutualFund = data
+      },
+        (error: any) => {
+          console.log(error);
+
+        });
 
     }
   }
 
-  getAllStockDetail()
-  {
-    this.token=  this.loginService.getToken();
-    if(this.token!=null)
-    {
-      this.sdService.getAllStockDetails().subscribe((data:AllStock[])=>
-      {
-        console.log(data);
-       this.allStock=data
+  getAllStockDetail() {
+    this.token = this.loginService.getToken();
+    if (this.token != null) {
+      this.sdService.getAllStockDetails().subscribe((data: AllStock[]) => {
+        console.log("Stock Details:", data);
+        this.allStock = data
       },
-      (error:any)=>
-      {
-        console.log(error);
+        (error: any) => {
+          console.log(error);
 
-      });
+        });
 
     }
 

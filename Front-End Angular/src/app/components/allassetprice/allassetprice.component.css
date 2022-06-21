@@ -3,3 +3,9 @@ h3.h {
     border-radius: 8px;
     padding: 5px;
 }
+
+.mat-raised-button {
+    width: 320px;
+    height: 50px;
+    align-items: center;
+}
